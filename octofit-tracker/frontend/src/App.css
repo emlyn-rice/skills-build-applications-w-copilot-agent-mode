@@ -1,38 +1,97 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background: linear-gradient(180deg, var(--bs-info-bg-subtle) 0%, var(--bs-body-bg) 35%, var(--bs-body-bg) 100%);
+  color: var(--bs-emphasis-color);
 }
 
-.App-link {
-  color: #61dafb;
+.app-main {
+  padding-bottom: 2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.page-card {
+  margin-bottom: 1.5rem;
+  border-color: var(--bs-primary-border-subtle);
+  box-shadow: 0 0.2rem 0.8rem rgba(var(--bs-primary-rgb), 0.08);
+}
+
+.table-cell-truncate {
+  max-width: 460px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.modal-pre {
+  max-height: 50vh;
+  overflow: auto;
+}
+
+.app-logo {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  border-radius: 0.5rem;
+}
+
+.navbar {
+  background-color: var(--bs-primary-bg-subtle) !important;
+  border-color: var(--bs-primary-border-subtle) !important;
+}
+
+.navbar .navbar-brand {
+  color: var(--bs-primary-text-emphasis);
+}
+
+.navbar .nav-link {
+  color: var(--bs-primary-text-emphasis);
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus,
+.navbar .nav-link.active {
+  color: var(--bs-primary);
+}
+
+.card .h3,
+.card .h2,
+.modal-title,
+.h2,
+.h3 {
+  color: var(--bs-primary-text-emphasis);
+}
+
+a,
+.link-primary {
+  color: var(--bs-link-color);
+}
+
+a:hover,
+a:focus,
+.link-primary:hover,
+.link-primary:focus {
+  color: var(--bs-link-hover-color);
+}
+
+.table {
+  --bs-table-striped-bg: var(--bs-primary-bg-subtle);
+  --bs-table-hover-bg: var(--bs-info-bg-subtle);
+}
+
+.table thead.table-light th {
+  background-color: var(--bs-primary);
+  color: var(--bs-light);
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--bs-primary);
+  --bs-btn-border-color: var(--bs-primary);
+  --bs-btn-hover-bg: var(--bs-primary-text-emphasis);
+  --bs-btn-hover-border-color: var(--bs-primary-text-emphasis);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--bs-primary);
+  --bs-btn-border-color: var(--bs-primary);
+  --bs-btn-hover-bg: var(--bs-primary);
+  --bs-btn-hover-border-color: var(--bs-primary);
 }
