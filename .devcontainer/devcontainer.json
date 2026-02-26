@@ -22,7 +22,7 @@
             "ms-python.debugpy" // Debugpy extension for Python
         ],
         "settings": {
-            "chat.agent.enabled": true,
+            "chat.agent.enabled": true
         }
     }
     },

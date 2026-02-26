@@ -112,10 +112,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # CORS settings
-CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOW_HEADERS = ['*']
-CORS_ALLOW_METHODS = ['*']
 import os
 codespace_name = os.environ.get('CODESPACE_NAME', None)
 if codespace_name:
@@ -125,8 +121,18 @@ if codespace_name:
         '127.0.0.1',
         '[::1]'
     ]
+    CORS_ALLOWED_ORIGINS = [
+        f"https://{codespace_name}-3000.app.github.dev"
+    ]
 else:
     ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
+    CORS_ALLOWED_ORIGINS = [
+        "http://localhost:3000"
+    ]
+
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_HEADERS = ['*']
+CORS_ALLOW_METHODS = ['*']
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
