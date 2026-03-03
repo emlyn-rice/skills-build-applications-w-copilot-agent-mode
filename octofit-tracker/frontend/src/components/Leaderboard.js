@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { apiEndpoint } from '../api';
+import { API_BASE_URL } from '../api';
 
 const formatLabel = (key) => key
   .replace(/_/g, ' ')
@@ -28,7 +28,7 @@ const Leaderboard = () => {
   const [leaders, setLeaders] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedLeader, setSelectedLeader] = useState(null);
-  const endpoint = apiEndpoint('/leaderboard/');
+  const endpoint = `${API_BASE_URL}leaderboard/`;
 
   const fetchLeaderboard = useCallback(() => {
     fetch(endpoint)

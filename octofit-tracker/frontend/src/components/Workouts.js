@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { apiEndpoint } from '../api';
+import { API_BASE_URL } from '../api';
 
 const formatLabel = (key) => key
   .replace(/_/g, ' ')
@@ -28,7 +28,7 @@ const Workouts = () => {
   const [workouts, setWorkouts] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedWorkout, setSelectedWorkout] = useState(null);
-  const endpoint = apiEndpoint('/workouts/');
+  const endpoint = `${API_BASE_URL}workouts/`;
 
   const fetchWorkouts = useCallback(() => {
     fetch(endpoint)

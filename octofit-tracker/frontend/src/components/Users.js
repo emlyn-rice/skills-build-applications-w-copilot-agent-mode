@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { apiEndpoint } from '../api';
+import { API_BASE_URL } from '../api';
 
 const formatLabel = (key) => key
   .replace(/_/g, ' ')
@@ -28,7 +28,7 @@ const Users = () => {
   const [users, setUsers] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedUser, setSelectedUser] = useState(null);
-  const endpoint = apiEndpoint('/users/');
+  const endpoint = `${API_BASE_URL}users/`;
 
   const fetchUsers = useCallback(() => {
     fetch(endpoint)
