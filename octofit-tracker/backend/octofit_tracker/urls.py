@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import RedirectView
 from rest_framework.routers import DefaultRouter
 from .views import UserViewSet, TeamViewSet, ActivityViewSet, LeaderboardViewSet, WorkoutViewSet
 from rest_framework.response import Response
@@ -36,15 +37,16 @@ def api_root(request, format=None):
     else:
         base_url = "http://localhost:8000"
     return Response({
-        'users': f'{base_url}/users/',
-        'teams': f'{base_url}/teams/',
-        'activities': f'{base_url}/activities/',
-        'leaderboard': f'{base_url}/leaderboard/',
-        'workouts': f'{base_url}/workouts/',
+        'users': f'{base_url}/api/users/',
+        'teams': f'{base_url}/api/teams/',
+        'activities': f'{base_url}/api/activities/',
+        'leaderboard': f'{base_url}/api/leaderboard/',
+        'workouts': f'{base_url}/api/workouts/',
     })
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', api_root, name='api-root'),
-    path('', include(router.urls)),
+    path('', RedirectView.as_view(url='/api/', permanent=False)),
+    path('api/', api_root, name='api-root'),
+    path('api/', include(router.urls)),
 ]
